@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python Learning App - Lesson 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #121212;
+      --text: #ffffff;
+      --card: #1e1e1e;
+      --accent: #90caf9;
+    }
+
+    body.light {
+      --bg: #ffffff;
+      --text: #000000;
+      --card: #f0f0f0;
+      --accent: #1976d2;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 30px 15px;
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(144, 202, 249, 0.6);
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 36px;
+      color: var(--accent);
+      margin-top: 15px;
+      text-shadow: 0 0 8px rgba(144, 202, 249, 0.4);
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+
+    p, li {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      color: var(--text);
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    /* Code editor styles */
+    #codeArea {
+      width: 100%;
+      height: 220px;
+      background: var(--card);
+      color: var(--text);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      border-radius: 12px;
+      border: none;
+      padding: 15px;
+      box-sizing: border-box;
+      resize: vertical;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      margin-bottom: 15px;
+      white-space: pre;
+    }
+
+    #runBtn {
+      background: var(--accent);
+      color: #121212;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(144, 202, 249, 0.4);
+      transition: background 0.3s ease;
+      user-select: none;
+      margin-bottom: 30px;
+    }
+
+    #runBtn:hover {
+      background: #64b5f6;
+    }
+
+    #output {
+      background: #222;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      padding: 15px;
+      border-radius: 12px;
+      min-height: 140px;
+      white-space: pre-wrap;
+      box-shadow: inset 0 0 8px #0f0;
+      user-select: text;
+    }
+
+    a.next-button {
+      display: inline-block;
+      background: var(--accent);
+      color: #121212;
+      padding: 14px 44px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      margin-top: 40px;
+      transition: background 0.3s ease;
+    }
+
+    a.next-button:hover {
+      background: #64b5f6;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text);
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      margin-top: 50px;
+      user-select: none;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js"></script>
+</head>
+<body onload="brython()">
+  <div class="container">
+    <header>
+      <img src="image/logo.jpg" alt="Python Logo" class="logo" />
+      <h1>Python Learning App - Lesson 2</h1>
+    </header>
+
+    <h2>Execute Python Syntax</h2>
+    <p>As we learned in the previous page, Python syntax can be executed by writing directly in the Command Line:</p>
+    <pre style="background:#333; padding:10px; border-radius:8px;">&gt;&gt;&gt; print("Hello, World!")<br>Hello, World!</pre>
+    <p>Or by creating a python file on the server, using the <code>.py</code> file extension, and running it in the Command Line:</p>
+    <pre style="background:#333; padding:10px; border-radius:8px;">C:\Users\Your Name&gt;python myfile.py</pre>
+
+    <h2>Python Indentation</h2>
+    <p>Indentation refers to the spaces at the beginning of a code line.</p>
+    <p>Where in other programming languages the indentation in code is for readability only, the indentation in Python is very important.</p>
+    <p>Python uses indentation to indicate a block of code.</p>
+
+    <h2>Example</h2>
+    <pre style="background:#333; padding:10px; border-radius:8px;">
+if 5 &gt; 2:
+  print("Five is greater than two!")
+    </pre>
+
+    <p>Python will give you an error if you skip the indentation:</p>
+    <h2>Example</h2>
+    <pre style="background:#333; padding:10px; border-radius:8px;">
+Syntax Error:
+
+if 5 &gt; 2:
+print("Five is greater than two!")
+    </pre>
+
+    <p>The number of spaces is up to you as a programmer, the most common use is four, but it has to be at least one.</p>
+
+    <h2>Example</h2>
+    <pre style="background:#333; padding:10px; border-radius:8px;">
+if 5 &gt; 2:
+ print("Five is greater than two!") 
+if 5 &gt; 2:
+        print("Five is greater than two!") 
+    </pre>
+
+    <p>You have to use the same number of spaces in the same block of code, otherwise Python will give you an error:</p>
+    <h2>Example</h2>
+    <pre style="background:#333; padding:10px; border-radius:8px;">
+Syntax Error:
+
+if 5 &gt; 2:
+ print("Five is greater than two!")
+        print("Five is greater than two!")
+    </pre>
+
+    <h2>Python Variables</h2>
+    <p>In Python, variables are created when you assign a value to it:</p>
+
+    <h3>Example</h3>
+    <pre style="background:#333; padding:10px; border-radius:8px;">
+Variables in Python:
+
+x = 5
+y = "Hello, World!"
+    </pre>
+
+    <p>Python has no command for declaring a variable.</p>
+    <p>You will learn more about variables in the Python Variables chapter.</p>
+
+    <h2>Comments</h2>
+    <p>Python has commenting capability for the purpose of in-code documentation.</p>
+    <p>Comments start with a <code>#</code>, and Python will render the rest of the line as a comment:</p>
+
+    <h3>Example</h3>
+    <pre style="background:#333; padding:10px; border-radius:8px;">
+Comments in Python:
+
+#This is a comment.
+print("Hello, World!")
+    </pre>
+
+    <h2>Try it yourself</h2>
+    <textarea id="codeArea" spellcheck="false">if 5 > 2:
+  print("Five is greater than two!")</textarea>
+    <button id="runBtn">▶ Run Code</button>
+    <pre id="output"></pre>
+
+    <a href="lesson3.html" class="next-button">Next Lesson</a>
+
+    <footer>
+      Created by Axle Deleon.<br />
+      Keep coding and exploring!<br />
+      &copy; 2025 Python Learning App. All rights reserved.
+    </footer>
+  </div>
+
+  <script type="text/python">
+from browser import document
+import sys
+
+def run_code(event):
+    output = document["output"]
+    code = document["codeArea"].value
+    output.textContent = ""
+
+    try:
+        class OutputCatcher:
+            def write(self, data):
+                output.textContent += data
+            def flush(self):
+                pass
+
+        sys.stdout = OutputCatcher()
+        sys.stderr = OutputCatcher()
+
+        exec(code)
+    except Exception as e:
+        output.textContent += "\nError: " + str(e)
+
+document["runBtn"].bind("click", run_code)
+  </script>
+</body>
+</html>
